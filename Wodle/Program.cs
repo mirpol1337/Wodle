@@ -23,16 +23,15 @@ namespace Wodle
             string inputString = Console.ReadLine();
             if (Int32.TryParse(inputString, out int numValue))
             {
-                if (numValue.Equals(4 & 5 & 6 & 7 & 8))
+                if (Enumerable.Range(4, 8).Contains(numValue))
                 {
                     return numValue;
                 }
-                else if (!numValue.Equals(4 & 5 & 6 & 7 & 8))
+                else if (!Enumerable.Range(4, 8).Contains(numValue))
                 {
                     Console.WriteLine("Right lenght of word wasnt enter(or no number). Default length 5 chosen");
                 }
             }
-
             else
             {
                 Console.WriteLine("Right lenght of word wasnt enter(or no number). Default length 5 chosen");

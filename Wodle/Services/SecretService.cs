@@ -28,7 +28,7 @@ namespace Wodle.Services
             string guess = Console.ReadLine();
             while (guess.Length != lenght)
             {
-                Console.WriteLine("Guess must contain" + lenght + "characters");
+                Console.WriteLine("Guess must contain " + lenght + " characters");
                 guess = Console.ReadLine();
             }
             return guess.ToLowerInvariant();
