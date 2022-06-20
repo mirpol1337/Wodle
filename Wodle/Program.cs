@@ -9,11 +9,11 @@ namespace Wodle
         {
             Prompt();
             SecretService.Check();
-;
         }
         static void Prompt()
         {
-            Console.WriteLine("Guess 5 letter Word");
+            //Console.WriteLine("Guess" + lenght + "letter Word");
+            Console.WriteLine("Guess the 5 letter word");
         }
         static int LenghtPrompt()
         {

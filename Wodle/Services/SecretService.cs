@@ -11,7 +11,7 @@ namespace Wodle.Services
     {
         public static void Check()
         {
-            string guess = Validate(guess: Console.ReadLine());
+            string guess = ReadAndValidate();
             if (guess.Equals(Secret.Solution(5)))
             {
                 Result(true);
@@ -23,12 +23,13 @@ namespace Wodle.Services
                 Check();
             }
         }
-        static string Validate(string guess)
+        static string ReadAndValidate()
         {
-            if (guess.Length != 5)
+            string guess = Console.ReadLine();
+            while (guess.Length != 5)
             {
                 Console.WriteLine("Guess must contain 5 characters");
-                Check();
+                guess = Console.ReadLine();
             }
             return guess.ToLowerInvariant();
         }
