@@ -10,6 +10,8 @@ namespace Wodle
             int lenght = LenghtPrompt();
             Prompt(lenght);
             SecretService.Check(lenght);
+            Console.WriteLine("Hit Enter to quit");
+            Console.ReadLine();
         }
         static void Prompt(int length)
         {
