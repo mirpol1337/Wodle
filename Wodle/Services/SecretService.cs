@@ -12,7 +12,7 @@ namespace Wodle.Services
         public static void Check()
         {
             string guess = Validate(guess: Console.ReadLine());
-            if (guess.Equals(Secret.Solution()))
+            if (guess.Equals(Secret.Solution(5)))
             {
                 Result(true);
             }
@@ -35,9 +35,9 @@ namespace Wodle.Services
         static string Hint(string guess)
         {
             string hint = "";
-            for (int i = 0; i < Secret.Solution().Length; i++)
+            for (int i = 0; i < Secret.Solution(5).Length; i++)
             {
-                if (guess[i].Equals(Secret.Solution()[i]))
+                if (guess[i].Equals(Secret.Solution(5)[i]))
                 {
                     hint += "Y";
                 }
@@ -56,7 +56,7 @@ namespace Wodle.Services
         static bool Contains(Char guess)
         {
 
-            if (Secret.Solution().Contains(guess))
+            if (Secret.Solution(5).Contains(guess))
             {
                 return true;
             }
