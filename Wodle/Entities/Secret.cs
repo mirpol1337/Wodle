@@ -8,9 +8,28 @@ namespace Wodle.Entities
 {
     internal class Secret
     {
-        public static string Solution()
+        public static string Solution(int length)
         {
-            return "hovno";
+            string tajny = "";
+            switch (length)
+            {
+                case 4:
+                    tajny = "prdy";
+                    break;
+                case 5:
+                    tajny = "hovno";
+                    break;
+                case 6:
+                    tajny = "hektar";
+                    break;
+                case 7:
+                    tajny = "maminka";
+                    break;
+                case 8:
+                    tajny = "manifest";
+                    break;
+            }
+            return tajny;
         }
     }
 }
