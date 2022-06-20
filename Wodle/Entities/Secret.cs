@@ -11,6 +11,7 @@ namespace Wodle.Entities
         public static string Solution(int length)
         {
             string tajny = "";
+
             switch (length)
             {
                 case 4:
@@ -28,6 +29,10 @@ namespace Wodle.Entities
                 case 8:
                     tajny = "manifest";
                     break;
+                default:
+                    Console.WriteLine("Choose between 4 and 8");
+                    break;
+                    ;
             }
             return tajny;
         }
