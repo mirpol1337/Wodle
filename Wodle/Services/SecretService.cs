@@ -9,40 +9,40 @@ namespace Wodle.Services
 {
     public class SecretService
     {
-        public static void Check()
+        public static void Check(int lenght)
         {
-            string guess = ReadAndValidate();
-            if (guess.Equals(Secret.Solution(5)))
+            string guess = ReadAndValidate(lenght);
+            if (guess.Equals(Secret.Solution(lenght)))
             {
                 Result(true);
             }
             else
             {
                 Result(false);
-                Hint(guess);
-                Check();
+                Hint(guess,lenght);
+                Check(lenght);
             }
         }
-        static string ReadAndValidate()
+        static string ReadAndValidate(int lenght)
         {
             string guess = Console.ReadLine();
-            while (guess.Length != 5)
+            while (guess.Length != lenght)
             {
-                Console.WriteLine("Guess must contain 5 characters");
+                Console.WriteLine("Guess must contain" + lenght + "characters");
                 guess = Console.ReadLine();
             }
             return guess.ToLowerInvariant();
         }
-        static string Hint(string guess)
+        static void Hint(string guess, int length)
         {
             string hint = "";
-            for (int i = 0; i < Secret.Solution(5).Length; i++)
+            for (int i = 0; i < Secret.Solution(length).Length; i++)
             {
-                if (guess[i].Equals(Secret.Solution(5)[i]))
+                if (guess[i].Equals(Secret.Solution(length)[i]))
                 {
                     hint += "Y";
                 }
-                else if (Contains(guess[i]))
+                else if (Contains(guess[i],length))
                 {
                     hint += "C";
                 }
@@ -52,12 +52,11 @@ namespace Wodle.Services
                 }
             }
             Console.WriteLine(hint);
-            return hint;
         }
-        static bool Contains(Char guess)
+        static bool Contains(Char guess, int lenght)
         {
 
-            if (Secret.Solution(5).Contains(guess))
+            if (Secret.Solution(lenght).Contains(guess))
             {
                 return true;
             }
